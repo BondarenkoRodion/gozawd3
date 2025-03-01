@@ -8,7 +8,6 @@ import (
 	"strconv"
 )
 
-// integral обчислює визначений інтеграл методом Сімпсона
 func integral(f func(float64) float64, a, b float64, n int) float64 {
 	h := (b - a) / float64(n)
 	sum := f(a) + f(b)
@@ -25,7 +24,6 @@ func integral(f func(float64) float64, a, b float64, n int) float64 {
 	return sum * (h / 3)
 }
 
-// HTML-шаблон
 var tmpl = template.Must(template.New("index").Parse(`
 <!DOCTYPE html>
 <html lang="uk">
@@ -42,12 +40,10 @@ var tmpl = template.Must(template.New("index").Parse(`
         <label>B: <input type="number" step="any" name="B" required></label><br>
         <button type="submit">Обчислити</button>
     </form>
-    {{if .}}
         <h3>Результати:</h3>
         <p>Прибуток до покращення: {{.Before}}</p>
         <p>Прибуток після покращення: {{.After}}</p>
-    {{end}}
-</body>
+    </body>
 </html>
 `))
 
